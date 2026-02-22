@@ -31,8 +31,8 @@ export default function Projects({ active }) {
   const p4TitleString = 'Northernwest'
   const p5TextString = '2024 / Personal / Agency'
   const p5TitleString = 'SkyWeb Media'
-  const p6TextString = '2024 / Comission / Restaurent'
-  const p6TitleString = 'RTacos'
+  const p6TextString = '2024 / Personal / Restaurant'
+  const p6TitleString = 'Temple Tacos'
   const p7TextString = '2023 / Comission / School'
   const p7TitleString = 'ENK School'
   const p8TextString = '2023 / Personal / Portfolio'
@@ -374,8 +374,8 @@ export default function Projects({ active }) {
           )}
 
           {currentStep >= 11 && (
-            <a href="https://r-tacos.vercel.app/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visit RTacos project (opens in new tab)"
+            <a href="https://temple-tacos.vercel.app/" target="_blank" rel="noopener noreferrer"
+               aria-label="Visit Temple Tacos project (opens in new tab)"
                className="block hover:opacity-50 transition-opacity mb-6 sm:mb-8">
               {project6Text && (
                 <p className="text-xs sm:text-sm font-normal mb-1 glitch-text" data-text={project6Text}>
