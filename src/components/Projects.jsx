@@ -263,7 +263,11 @@ export default function Projects({ active }) {
   if (active !== "projects") return null
 
   return (
-    <section aria-labelledby="projects-heading" className="absolute top-[var(--section-top)] right-[var(--content-x)] w-[min(90vw,40rem)] text-right text-[var(--fg)]">
+    <section 
+      aria-labelledby="projects-heading" 
+      className="absolute top-[var(--section-top)] right-[var(--content-x)] max-w-[min(90vw,40rem)] text-right text-[var(--fg)] z-30"
+      style={{ maxHeight: 'calc(100vh - var(--section-top) - var(--frame-y))' }}
+    >
       {titleText && (
         <h2 id="projects-heading" className="text-xs sm:text-sm mb-4 sm:mb-6 opacity-80 glitch-text" data-text={titleText}>
           {titleText}
@@ -272,7 +276,10 @@ export default function Projects({ active }) {
       )}
 
       {currentStep >= 1 && (
-        <div className="max-h-[calc(100vh-var(--section-top)-var(--content-y)-2rem)] overflow-y-auto scrollbar-hide pr-2">
+        <div 
+          className="max-h-[calc(100vh-var(--section-top)-var(--frame-y)-3rem)] sm:max-h-[calc(100vh-var(--section-top)-var(--frame-y)-4rem)] overflow-y-auto scrollbar-hide overscroll-contain pr-1"
+          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
+        >
           <a href="https://ads-platform-frontend-psi.vercel.app/login" target="_blank" rel="noopener noreferrer"
              aria-label="Visit AdCampaign Pro project (opens in new tab)"
              className="block hover:opacity-50 transition-opacity mb-6 sm:mb-8">
@@ -283,7 +290,7 @@ export default function Projects({ active }) {
               </p>
             )}
             {project1Title && (
-              <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project1Title}>
+              <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project1Title}>
                 {project1Title}
                 {project1Title.length < p1TitleString.length && currentStep === 2 && <span className="cursor-blink">|</span>}
               </p>
@@ -301,7 +308,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project2Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project2Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project2Title}>
                   {project2Title}
                   {project2Title.length < p2TitleString.length && currentStep === 4 && <span className="cursor-blink">|</span>}
                 </p>
@@ -320,7 +327,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project3Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project3Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project3Title}>
                   {project3Title}
                   {project3Title.length < p3TitleString.length && currentStep === 6 && <span className="cursor-blink">|</span>}
                 </p>
@@ -339,7 +346,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project4Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project4Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project4Title}>
                   {project4Title}
                   {project4Title.length < p4TitleString.length && currentStep === 8 && <span className="cursor-blink">|</span>}
                 </p>
@@ -358,7 +365,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project5Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project5Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project5Title}>
                   {project5Title}
                   {project5Title.length < p5TitleString.length && currentStep === 10 && <span className="cursor-blink">|</span>}
                 </p>
@@ -377,7 +384,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project6Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project6Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project6Title}>
                   {project6Title}
                   {project6Title.length < p6TitleString.length && currentStep === 12 && <span className="cursor-blink">|</span>}
                 </p>
@@ -396,7 +403,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project7Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project7Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project7Title}>
                   {project7Title}
                   {project7Title.length < p7TitleString.length && currentStep === 14 && <span className="cursor-blink">|</span>}
                 </p>
@@ -415,7 +422,7 @@ export default function Projects({ active }) {
                 </p>
               )}
               {project8Title && (
-                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text" data-text={project8Title}>
+                <p className="text-[clamp(1.25rem,5vw,3.5rem)] font-bold tracking-tight glitch-text whitespace-nowrap" data-text={project8Title}>
                   {project8Title}
                   {project8Title.length < p8TitleString.length && currentStep === 16 && <span className="cursor-blink">|</span>}
                 </p>

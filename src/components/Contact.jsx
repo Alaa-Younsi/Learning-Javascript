@@ -18,16 +18,21 @@ export default function Contact({ active }) {
   if (active !== "contact") return null
 
   return (
-    <a
-      href="https://linktr.ee/infinituxs"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Contact via Linktree (opens in new tab)"
-      className="absolute right-[var(--content-x)] bottom-[var(--content-y)] text-[var(--fg)] font-normal hover:opacity-50 transition-opacity text-[clamp(0.7rem,1vw,0.95rem)] z-20"
-    >
-      {contactText || <span className="cursor-blink">|</span>}
-      {contactText && contactText.length < contactString.length && <span className="cursor-blink">|</span>}
-    </a>
+    <div className="absolute bottom-[var(--content-y)] right-[var(--content-x)] text-[var(--fg)] space-y-2 text-right">
+      {contactText && (
+        <a
+          href="https://linktr.ee/infinituxs"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact via Linktree (opens in new tab)"
+          className="block text-[clamp(0.7rem,1vw,0.95rem)] font-normal hover:opacity-50 transition-opacity z-20 glitch-text"
+          data-text={contactText}
+        >
+          {contactText}
+          {contactText.length < contactString.length && <span className="cursor-blink">|</span>}
+        </a>
+      )}
+    </div>
   )
 }
 

@@ -112,12 +112,25 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .animate-fadeOut {
   animation: fadeOut 2s forwards;
 }
 
 .animate-fadeOutSlow {
   animation: fadeOut 2.35s forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 

@@ -60,10 +60,10 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
   const placeStar = (star) => {
     // Place star only within frame bounds
     const bounds = frameBoundsRef.current;
-    const leftBound = window.innerWidth * bounds.left * scaleRef.current;
-    const rightBound = window.innerWidth * bounds.right * scaleRef.current;
-    const topBound = window.innerHeight * bounds.top * scaleRef.current;
-    const bottomBound = window.innerHeight * bounds.bottom * scaleRef.current;
+    const leftBound = widthRef.current * bounds.left;
+    const rightBound = widthRef.current * bounds.right;
+    const topBound = heightRef.current * bounds.top;
+    const bottomBound = heightRef.current * bounds.bottom;
 
     star.x = leftBound + Math.random() * (rightBound - leftBound);
     star.y = topBound + Math.random() * (bottomBound - topBound);
@@ -93,10 +93,10 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
 
     // Calculate frame boundaries
     const bounds = frameBoundsRef.current;
-    const leftBound = window.innerWidth * bounds.left * scaleRef.current;
-    const rightBound = window.innerWidth * bounds.right * scaleRef.current;
-    const topBound = window.innerHeight * bounds.top * scaleRef.current;
-    const bottomBound = window.innerHeight * bounds.bottom * scaleRef.current;
+    const leftBound = widthRef.current * bounds.left;
+    const rightBound = widthRef.current * bounds.right;
+    const topBound = heightRef.current * bounds.top;
+    const bottomBound = heightRef.current * bounds.bottom;
     const frameWidth = rightBound - leftBound;
     const frameHeight = bottomBound - topBound;
 
@@ -123,16 +123,19 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Calculate actual frame positions from viewport
-    const actualFrameX = Math.max(12, Math.min(window.innerWidth * 0.025, 32));
-    const actualFrameY = Math.max(16, Math.min(window.innerHeight * 0.05, 48));
+    // Calculate actual frame positions from viewport - matching CSS clamp exactly
+    // --frame-x: clamp(12px, 2.5vw, 32px)
+    // --frame-y: clamp(16px, 5vh, 48px)
+    const frameXpx = Math.max(12, Math.min(window.innerWidth * 0.025, 32));
+    const frameYpx = Math.max(16, Math.min(window.innerHeight * 0.05, 48));
 
     if (!fullScreen) {
+      // Use pixel-perfect boundaries to match the CSS frame lines
       frameBoundsRef.current = {
-        top: actualFrameY / window.innerHeight,
-        bottom: 1 - actualFrameY / window.innerHeight,
-        left: actualFrameX / window.innerWidth,
-        right: 1 - actualFrameX / window.innerWidth,
+        top: frameYpx / window.innerHeight,
+        bottom: (window.innerHeight - frameYpx) / window.innerHeight,
+        left: frameXpx / window.innerWidth,
+        right: (window.innerWidth - frameXpx) / window.innerWidth,
       };
     } else {
       frameBoundsRef.current = { top: 0, bottom: 1, left: 0, right: 1 };
@@ -165,10 +168,10 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
 
     // Calculate frame boundaries
     const bounds = frameBoundsRef.current;
-    const leftBound = window.innerWidth * bounds.left * scaleRef.current;
-    const rightBound = window.innerWidth * bounds.right * scaleRef.current;
-    const topBound = window.innerHeight * bounds.top * scaleRef.current;
-    const bottomBound = window.innerHeight * bounds.bottom * scaleRef.current;
+    const leftBound = widthRef.current * bounds.left;
+    const rightBound = widthRef.current * bounds.right;
+    const topBound = heightRef.current * bounds.top;
+    const bottomBound = heightRef.current * bounds.bottom;
 
     starsRef.current.forEach((star) => {
       star.x += velocityRef.current.x * star.z;
@@ -198,17 +201,20 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
     // Clear entire canvas
     context.clearRect(0, 0, widthRef.current, heightRef.current);
 
-    // Calculate frame boundaries
+    // Calculate frame boundaries with pixel precision
     const bounds = frameBoundsRef.current;
-    const leftBound = window.innerWidth * bounds.left * scaleRef.current;
-    const rightBound = window.innerWidth * bounds.right * scaleRef.current;
-    const topBound = window.innerHeight * bounds.top * scaleRef.current;
-    const bottomBound = window.innerHeight * bounds.bottom * scaleRef.current;
+    // Use widthRef and heightRef which already include scale
+    // Add 1px inset to ensure stars stay fully within frame boundaries
+    const inset = scaleRef.current; // 1 CSS pixel in device pixels
+    const leftBound = widthRef.current * bounds.left + inset;
+    const rightBound = widthRef.current * bounds.right - inset;
+    const topBound = heightRef.current * bounds.top + inset;
+    const bottomBound = heightRef.current * bounds.bottom - inset;
 
-    // Optional: Add subtle glow effect
+    // Clear and clip to frame boundaries
     context.save();
     
-    // Create clipping path for the frame
+    // Create precise clipping path for the frame
     context.beginPath();
     context.rect(leftBound, topBound, rightBound - leftBound, bottomBound - topBound);
     context.clip();

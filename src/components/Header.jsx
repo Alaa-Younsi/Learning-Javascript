@@ -11,7 +11,7 @@ export default function Header({ active, setActive }) {
   )
 
   return (
-    <header className="fixed left-[var(--content-x)] top-[var(--content-y)] text-[var(--fg)] z-10 text-left">
+    <header className="fixed left-[var(--content-x)] top-[var(--content-y)] text-[var(--fg)] z-40 text-left">
       <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold tracking-tight">Alaa Younsi</h1>
       <p className="text-[clamp(0.65rem,1.2vw,0.95rem)] mt-1 opacity-80">Developer & Designer</p>
 

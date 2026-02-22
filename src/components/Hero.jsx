@@ -22,6 +22,19 @@ export default function Hero({ active }) { // Renamed from Home to Hero for clar
   const [currentLineIndex, setCurrentLineIndex] = useState(0)
   const [currentText, setCurrentText] = useState('')
   const [currentCharIndex, setCurrentCharIndex] = useState(0)
+  const [link1Text, setLink1Text] = useState('')
+  const [link2Text, setLink2Text] = useState('')
+  const [showLinks, setShowLinks] = useState(true) // Show immediately
+
+  const link1String = 'Dead Side↗'
+  const link2String = 'Journey↗'
+
+  // Start showing links immediately on mount
+  useEffect(() => {
+    if (active === "home") {
+      setShowLinks(true)
+    }
+  }, [active])
 
   useEffect(() => {
     if (active !== "home") return
@@ -49,37 +62,88 @@ export default function Hero({ active }) { // Renamed from Home to Hero for clar
     }
   }, [currentCharIndex, currentLineIndex, typedLines, lines, active])
 
+  // Type link 1
+  useEffect(() => {
+    if (!showLinks || link1Text.length >= link1String.length) return
+    const timer = setTimeout(() => {
+      setLink1Text(link1String.slice(0, link1Text.length + 1))
+    }, 25)
+    return () => clearTimeout(timer)
+  }, [showLinks, link1Text, link1String])
+
+  // Type link 2 after link 1
+  useEffect(() => {
+    if (!showLinks || link1Text.length < link1String.length || link2Text.length >= link2String.length) return
+    const timer = setTimeout(() => {
+      setLink2Text(link2String.slice(0, link2Text.length + 1))
+    }, 25)
+    return () => clearTimeout(timer)
+  }, [showLinks, link1Text, link2Text, link1String, link2String])
+
   // Don't render when not on home
   if (active !== "home") return null
 
   return (
-    <div className="absolute bottom-[var(--content-y)] right-[var(--content-x)] text-[var(--fg)] font-normal space-y-0.5 sm:space-y-1">
-      {typedLines.map((l, index) => (
-        <p 
-          key={`line-${index}`}
-          className="glitch-text text-[clamp(0.6rem,1vw,0.9rem)]"
-          data-text={l}
-          style={{ 
-            lineHeight: '1.2'
-          }}
-        >
-          {l}
-        </p>
-      ))}
-      {currentText && currentLineIndex < lines.length && (
-        <p 
-          key={`current-${currentLineIndex}-${currentCharIndex}`}
-          className="glitch-text text-[clamp(0.6rem,1vw,0.9rem)]"
-          data-text={currentText}
-          style={{ 
-            lineHeight: '1.2'
-          }}
-        >
-          {currentText}
-          {currentCharIndex < lines[currentLineIndex]?.length && <span className="cursor-blink">|</span>}
-        </p>
+    <>
+      <div className="absolute bottom-[var(--content-y)] right-[var(--content-x)] text-[var(--fg)] font-normal space-y-0.5 sm:space-y-1">
+        {typedLines.map((l, index) => (
+          <p 
+            key={`line-${index}`}
+            className="glitch-text text-[clamp(0.6rem,1vw,0.9rem)]"
+            data-text={l}
+            style={{ 
+              lineHeight: '1.2'
+            }}
+          >
+            {l}
+          </p>
+        ))}
+        {currentText && currentLineIndex < lines.length && (
+          <p 
+            key={`current-${currentLineIndex}-${currentCharIndex}`}
+            className="glitch-text text-[clamp(0.6rem,1vw,0.9rem)]"
+            data-text={currentText}
+            style={{ 
+              lineHeight: '1.2'
+            }}
+          >
+            {currentText}
+            {currentCharIndex < lines[currentLineIndex]?.length && <span className="cursor-blink">|</span>}
+          </p>
+        )}
+      </div>
+
+      {showLinks && (
+        <div className="absolute bottom-[var(--content-y)] left-[var(--content-x)] text-[var(--fg)] space-y-2 animate-fadeIn">
+          {link1Text && (
+            <a 
+              href="https://dead-side-sigma.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit Dead Side (opens in new tab)"
+              className="block text-[clamp(0.7rem,1vw,0.9rem)] hover:opacity-50 transition-opacity glitch-text" 
+              data-text={link1Text}
+            >
+              {link1Text}
+              {link1Text.length < link1String.length && <span className="cursor-blink">|</span>}
+            </a>
+          )}
+          {link1Text.length >= link1String.length && link2Text && (
+            <a 
+              href="#" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit Journey (opens in new tab)"
+              className="block text-[clamp(0.7rem,1vw,0.9rem)] hover:opacity-50 transition-opacity glitch-text" 
+              data-text={link2Text}
+            >
+              {link2Text}
+              {link2Text.length < link2String.length && <span className="cursor-blink">|</span>}
+            </a>
+          )}
+        </div>
       )}
-    </div>
+    </>
   )
 }
 
