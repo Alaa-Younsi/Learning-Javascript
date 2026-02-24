@@ -1,232 +1,220 @@
-# Modern Portfolio - Current Main Portfolio
+# Alaa Younsi — Portfolio
 
-## 🌟 Live Portfolio
+## 🌐 Live
 
-**Live Demo:** [https://portfolio-six-pi-28.vercel.app/](https://portfolio-six-pi-28.vercel.app/)
-
-## 📋 Project Overview
-
-This is my **current main professional portfolio**, representing the culmination of my web development journey from early HTML/CSS experiments to modern full-stack applications. Built with cutting-edge technologies and designed for maximum impact, this portfolio showcases my skills, projects, and professional identity in a clean, performant, and interactive experience.
+**[https://alaa-younsi.vercel.app](https://alaa-younsi.vercel.app)**
 
 ---
 
-## 🚀 Technology Stack
+## 📋 Overview
 
-### **Frontend Framework**
-- **Next.js 14** (React 18) - Server-side rendering, optimized performance, and modern React features
-- **TypeScript** - Type-safe development for better maintainability and scalability
-
-### **Styling & UI**
-- **Tailwind CSS** - Utility-first CSS framework for rapid, responsive UI development
-- **Framer Motion** - Advanced animations and interactive transitions
-- **React Icons** - Comprehensive icon library
-
-### **Development & Deployment**
-- **Vercel** - Platform for deployment, hosting, and serverless functions
-- **Git & GitHub** - Version control and repository management
-- **ESLint & Prettier** - Code quality and formatting tools
-
-### **Performance & Optimization**
-- **Next.js Image Optimization** - Automatic image optimization and lazy loading
-- **Font Optimization** - System fonts and optimized web font loading
-- **Code Splitting** - Automatic code splitting for faster page loads
-
-### **Additional Features**
-- **Responsive Design** - Mobile-first approach with breakpoints for all devices
-- **Dark/Light Mode** - Theme switching with system preference detection
-- **SEO Optimization** - Meta tags, structured data, and Open Graph integration
-- **Accessibility** - WCAG compliance, ARIA labels, and keyboard navigation
-- **Analytics** (Optional) - Integration with analytics platforms
+My current main portfolio. A framed, interstellar-themed single-page application built entirely from scratch with React and Vite — no UI libraries, no component frameworks. Every animation, every interactive element is hand-coded. The design philosophy is minimal, dark, and typographic: white borders on black, monospace text, physics-based particles, and a scientifically-inspired black hole as the centrepiece.
 
 ---
 
-## ✨ Key Features
+## 📸 Screenshots
 
-### **Professional Presentation**
-- **Clean, Modern Design** - Minimalist aesthetic with strategic visual hierarchy
-- **Interactive Elements** - Smooth animations and engaging user interactions
-- **Performance-Focused** - High Lighthouse scores and fast loading times
-- **Mobile-First Approach** - Flawless experience across all device sizes
-
-### **Content Sections**
-1. **Hero Section** - Compelling introduction with call-to-action
-2. **About Me** - Professional background, skills, and personal story
-3. **Projects Showcase** - Featured work with case studies and live demos
-4. **Skills Matrix** - Visual representation of technical proficiencies
-5. **Experience Timeline** - Professional journey and achievements
-6. **Contact Interface** - Multiple ways to connect and collaborate
-
-### **Technical Highlights**
-- **Server-Side Rendering** for optimal SEO and performance
-- **Dynamic Routing** for project pages and blog posts
-- **API Integration** for contact forms and external data
-- **Progressive Web App** capabilities
-- **Offline Support** for reliable access
+<!-- Add screenshots here -->
+| Desktop | Mobile |
+|---|---|
+| ![Desktop](./public/screenshots/desktop.png) | ![Mobile](./public/screenshots/mobile.png) |
 
 ---
 
-## 📈 Continuous Evolution
+## 🚀 Tech Stack
 
-**This portfolio is a living project** that will continuously evolve with:
+### Core
+| Technology | Version | Role |
+|---|---|---|
+| **React** | 19 | UI component model, hooks-based state & effects |
+| **Vite** | 7 | Dev server, HMR, production bundler |
+| **Tailwind CSS** | 3 | Utility-first styling, responsive breakpoints, CSS variables |
+| **PostCSS + Autoprefixer** | 8 | CSS processing and cross-browser prefixing |
 
-### **Planned & Ongoing Updates**
-- ✅ **Regular Content Updates** - New projects, skills, and experiences
-- ✅ **Performance Optimizations** - Ongoing speed and UX improvements
-- ✅ **Feature Enhancements** - New interactive elements and sections
-- 🔄 **Blog Integration** - Technical writing and project deep-dives
-- 🔄 **Project Filtering** - Advanced filtering and search capabilities
-- 🔄 **Internationalization** - Multi-language support
-- 🔄 **Admin Dashboard** - Content management interface
-- 🔄 **Backend Integration** - Database for dynamic content
+### Libraries
+| Library | Role |
+|---|---|
+| **react-helmet-async** | Document head management (title, meta, OG, Twitter Card tags) |
 
-### **Technology Roadmap**
-- **Next.js Updates** - Keeping pace with framework advancements
-- **New Animation Libraries** - Enhanced visual experiences
-- **Advanced Analytics** - User interaction tracking and insights
-- **Third-Party Integrations** - GitHub API, CMS, etc.
-- **Experimental Features** - Testing new web technologies
+### Tooling
+| Tool | Role |
+|---|---|
+| **ESLint** (flat config) | Static analysis with `react-hooks` and `react-refresh` plugins |
+| **Vercel** | Zero-config deployment, CDN, HTTPS |
+| **Git & GitHub** | Version control |
+
+### Fonts (Google Fonts)
+- **JetBrains Mono** — primary UI font
+- **Fira Code** — fallback
+- **Source Code Pro** — fallback
 
 ---
 
-## 📁 Project Structure
+## ✨ Features
+
+### Layout & Design
+- **Framed card UI** — white border frame on full-viewport black background, consistent on all screen sizes
+- **Dark / Light mode** — manual toggle, CSS variable-driven theme switching (`--bg`, `--fg`, `--border`)
+- **Fully responsive** — custom Tailwind breakpoints (`xs: 375px`, `sm: 640px`, `md–2xl`)
+- **Monospace typographic system** — `clamp()`-based fluid type scaling throughout
+
+### Animations & Interactivity
+- **Animated star field** — Canvas API particle system; stars follow pointer/touch parallax within the frame boundary using clipping paths; device-pixel-ratio aware
+- **Interstellar black hole** — Physics-based Canvas animation with Keplerian orbital motion, Doppler colour shift (blue-shift approaching, red-shift receding), and gravitational lensing glow; explodes on click/tap
+- **Splash screen** — Fade-out intro on first load
+- **Typing animations** — Character-by-character text reveal for every section (Hero bio, Projects list, Skills, About, Contact) built with `useState`/`useEffect` state machines
+- **Glitch text effect** — CSS `text-shadow` animation on all headings and links, intensifies on hover; `::before`/`::after` pseudo-elements for layered glitch
+- **Blinking cursor** — Animated `|` cursor during active typing sequences
+
+### Sections
+| Section | Description |
+|---|---|
+| **Home** | Typing biography (bottom-right), external project links with glitch effect (bottom-left), interactive black hole |
+| **Projects** | Sequential typing reveal of 8 live projects with labels and titles; inner scroll container clipped to frame |
+| **Skills** | Animated skills list |
+| **Info (About)** | Biography and background |
+| **Contact** | Linktree link with glitch effect |
+
+---
+
+## 🏗️ Project Structure
 
 ```
-portfolio/
-├── app/                    # Next.js 14 App Router
-│   ├── (routes)/          # Page routes and layouts
-│   ├── api/               # API routes and server functions
-│   └── globals.css        # Global styles
-├── components/            # Reusable React components
-│   ├── ui/               # Basic UI components
-│   ├── sections/         # Page section components
-│   └── animations/       # Animation components
-├── lib/                   # Utility functions and helpers
-├── public/               # Static assets (images, fonts, icons)
-├── types/                # TypeScript type definitions
-├── content/              # Portfolio content (projects, experiences)
-└── config/               # Site configuration and constants
+portfolio 1.2/
+├── index.html                  # Entry HTML, favicon, font preconnects, page title
+├── vite.config.js              # Vite config
+├── tailwind.config.js          # Custom breakpoints, extended animations
+├── postcss.config.js           # Autoprefixer
+├── eslint.config.js            # Flat ESLint config
+├── vercel.json                 # Vercel deployment config
+├── public/
+│   ├── robots.txt
+│   └── sitemap.xml
+└── src/
+    ├── main.jsx                # React root, HelmetProvider
+    ├── App.jsx                 # App entry → Home page
+    ├── index.css               # Global CSS: glitch keyframes, fonts, mobile base
+    ├── assets/                 # Static assets (favicon, images)
+    ├── pages/
+    │   └── Home.jsx            # Root page: layout, theme vars, navigation state
+    └── components/
+        ├── Header.jsx          # Nav buttons (Home, Projects, Info, Contact)
+        ├── Hero.jsx            # Typing bio + Dead Side / Journey links
+        ├── About.jsx           # Info section
+        ├── Skills.jsx          # Skills section
+        ├── Projects.jsx        # 8 projects with typing animation + inner scroll
+        ├── Contact.jsx         # Contact / Linktree link
+        ├── Background.jsx      # Canvas star field with pointer parallax
+        ├── BlackHole.jsx       # Canvas black hole (physics, Doppler, explosion)
+        └── SplashScreen.jsx    # Intro fade-out overlay
 ```
 
 ---
 
 ## 🎯 Portfolio Philosophy
 
-### **Design Principles**
-1. **Clarity Over Complexity** - Simple navigation, clear messaging
-2. **Performance as Feature** - Fast loading as a core user experience
-3. **Accessibility First** - Inclusive design for all users
-4. **Mobile-First Mindset** - Optimized for all devices from the start
-5. **Personal Brand Consistency** - Unified visual identity and tone
+The design rejects the typical "card grid on white background" portfolio format. Instead it treats the portfolio itself as a project — something that demonstrates craft, not just lists it.
 
-### **Content Strategy**
-- **Show, Don't Just Tell** - Interactive demos and visual proof of skills
-- **Storytelling Approach** - Connecting technical work with human impact
-- **Transparent Process** - Sharing both successes and learning experiences
-- **Regular Updates** - Keeping content current and relevant
+1. **Code as art** — every visual effect is written by hand; nothing is imported from a component library
+2. **Performance as design** — animations run on `canvas` and GPU-composited layers, never forcing layout reflows
+3. **Restraint** — one font family, two colours, no images except project screenshots; the work speaks through motion and text
+4. **Real device parity** — mobile experience is engineered to match desktop exactly, not just "responsive"
 
 ---
 
-## 🛠️ Development Setup
+## 🛠️ Local Development
 
-### **Local Development**
 ```bash
-# Clone the repository
-git clone [repository-url]
+# Clone
+git clone https://github.com/alaa-younsi/portfolio.git
+cd "portfolio 1.2"
 
-# Install dependencies
+# Install
 npm install
 
-# Run development server
+# Dev server (http://localhost:5173)
 npm run dev
 
-# Open http://localhost:3000
-```
-
-### **Build & Deployment**
-```bash
-# Build for production
+# Production build
 npm run build
 
-# Deploy to Vercel
-vercel deploy
+# Preview production build locally
+npm run preview
 ```
 
 ---
 
-## 📊 Performance Metrics
+## ✅ Best Practices
 
-- **Lighthouse Scores**: 95+ across Performance, Accessibility, Best Practices, SEO
-- **Core Web Vitals**: All metrics in "Good" range
-- **Load Time**: < 2 seconds on average connection
-- **Bundle Size**: Optimized with code splitting and tree shaking
-- **SEO Ranking**: Optimized meta tags and structured data
+### Performance
+- Canvas animations use `requestAnimationFrame` with a single loop; no `setInterval` timers on the render path
+- Star field and black hole each run on a single `<canvas>` element (no multi-layer canvas stacking)
+- `willChange: 'scroll-position'` on the Projects scroll container promotes it to its own compositing layer
+- Background `touchmove` listener registered as `{ passive: true }` — never blocks the browser's scroll compositor thread
+- Global CSS `transition` rule scoped to `opacity` only — `transform` excluded to prevent full repaints on every scroll frame
+- Fonts loaded via `<link rel="preconnect">` + single Google Fonts request with `display=swap`
+- Vite tree-shaking eliminates all unused code at build time
+
+### Mobile
+- Viewport units use `dvh` (dynamic viewport height) so layout recalculates correctly when the mobile URL bar expands/collapses
+- `html`, `body`, `#root` locked to `height: 100%; overflow: hidden` — prevents page-level body scroll and viewport stretch on swipe
+- Projects section: `touch-action: pan-y` on both the section and scroll container; `overscroll-behavior: contain` prevents scroll chaining
+- CSS `clip-path: inset(var(--frame-y) var(--frame-x))` on the canvas enforces hard GPU-level clipping at the frame boundary on mobile compositors
+
+### SEO
+- `react-helmet-async` manages `<title>`, `<meta name="description">`, canonical URL
+- Full Open Graph tags (`og:type`, `og:title`, `og:description`, `og:url`, `og:site_name`)
+- Twitter Card tags (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:creator`)
+- `sitemap.xml` and `robots.txt` in `/public`
+- Semantic HTML: `<section>` with `aria-labelledby`, `<h2>` headings per section
+
+### Accessibility
+- All interactive elements have `aria-label` attributes
+- External links include `target="_blank" rel="noopener noreferrer"` and `aria-label` describing destination
+- Theme toggle button has dynamic `aria-label` reflecting current mode
+- `<button type="button">` used for all non-form buttons to prevent accidental form submission
+
+### Security
+- All external links use `rel="noopener noreferrer"` preventing tab-napping and `window.opener` leaks
+- No `dangerouslySetInnerHTML` anywhere in the codebase
+- No user input fields — no XSS surface
+- `vercel.json` handles routing; no server logic exposed
+
+### Code Quality
+- ESLint flat config with `eslint-plugin-react-hooks` (enforces Rules of Hooks) and `eslint-plugin-react-refresh` (HMR safety)
+- All `useEffect` hooks have correct dependency arrays
+- No unused state setters (converted to constants where setter is never called)
+- Component-level `if (active !== "section") return null` guards prevent off-screen renders
 
 ---
 
 ## 🔄 Version History & Iteration
 
-This portfolio represents the **next evolutionary step** from previous versions:
-- **Marlowe Series** → **Modern Portfolio** (This version)
-- **Static HTML/CSS** → **Dynamic React/Next.js Application**
-- **Basic Responsive** → **Advanced Performance Optimization**
-- **Portfolio as Brochure** → **Portfolio as Interactive Experience**
+- **Marlowe Series** (static HTML/CSS) → **Portfolio 1.0** (React, basic layout)
+- **Portfolio 1.0** → **Portfolio 1.1** (black hole, canvas background, glitch system)
+- **Portfolio 1.1** → **Portfolio 1.2** (this version) — physics black hole rewrite, mobile fixes, dvh units, Projects inner scroll, SEO overhaul, performance hardening
 
-Each iteration builds upon lessons learned from previous projects like Zed, Marlowe series, and experimental works.
-
----
-
-## 🎨 Customization & Theming
-
-- **Theme System**: Custom color palettes and design tokens
-- **Modular Components**: Easy to rearrange or replace sections
-- **Content Management**: Structured data for easy updates
-- **Configuration Files**: Centralized settings for quick modifications
-
----
-
-## 🤝 Collaboration & Contributions
-
-While this is a personal portfolio, the codebase demonstrates:
-- **Clean Architecture** - Scalable and maintainable structure
-- **Best Practices** - Modern React patterns and conventions
-- **Documentation** - Clear comments and component documentation
-- **Reusability** - Components designed for potential open-source sharing
-
----
-
-## 📅 Maintenance & Updates
-
-### **Regular Maintenance**
-- Monthly dependency updates
-- Quarterly performance audits
-- Biannual content refreshes
-- Annual design reviews
-
-### **Update Philosophy**
-- **Incremental Improvements** - Small, frequent updates over massive rewrites
-- **User Feedback Driven** - Incorporating visitor suggestions and analytics
-- **Technology Tracking** - Staying current with web development trends
-- **Backward Compatibility** - Ensuring existing links and features remain functional
+Each version builds on lessons from the previous, plus real-device testing across Android Chrome, Brave, and iOS Safari.
 
 ---
 
 ## ⚡ Why This Portfolio Stands Out
 
-1. **Technical Excellence** - Built with industry-best practices and modern tools
-2. **Continuous Improvement** - Never static, always evolving with new features
-3. **Performance Focused** - Optimized for speed, accessibility, and user experience
-4. **Personal Authenticity** - Reflects genuine skills, projects, and professional journey
-5. **Future-Proof Architecture** - Designed to accommodate growth and new technologies
+1. **Zero UI libraries** — every interactive element is original code; no Framer Motion, no shadcn, no component kit
+2. **Physics-accurate black hole** — Keplerian orbital mechanics and Doppler colour shift implemented on Canvas, inspired by *Interstellar*
+3. **Engineered for real devices** — most mobile bugs are invisible in DevTools emulation; this was tested and fixed on real Android hardware
+4. **Typography-first design** — the entire visual language is built on a single monospace font family, fluid type scaling, and deliberate whitespace
+5. **Performant by construction** — compositor-thread animations, passive event listeners, and `dvh` viewport handling chosen from the ground up
 
 ---
 
 ## 👨‍💻 About the Developer
 
-**Alaa Younsi**  
+**Alaa Younsi**
 *Full-Stack Developer & UI/UX Designer*
 
-This portfolio represents my commitment to craftsmanship in web development—showcasing not just what I've built, but how I think, solve problems, and continuously evolve as a developer. It's more than a collection of projects; it's an ongoing conversation about technology, design, and creating meaningful digital experiences.
+This portfolio represents my commitment to craftsmanship in web development — showcasing not just what I've built, but how I think, solve problems, and continuously evolve as a developer. It's more than a collection of projects; it's an ongoing conversation about technology, design, and creating meaningful digital experiences.
 
 ---
 
-*"A portfolio is never finished—it's a living document of a developer's journey, constantly refined with new knowledge, projects, and perspectives. This is my current chapter."*
+*"A portfolio is never finished — it's a living document of a developer's journey, constantly refined with new knowledge, projects, and perspectives. This is my current chapter."*
