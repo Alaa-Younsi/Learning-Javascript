@@ -265,7 +265,7 @@ export default function Projects({ active }) {
   return (
     <section 
       aria-labelledby="projects-heading" 
-      className="absolute top-[var(--section-top)] right-[var(--content-x)] max-w-[min(90vw,40rem)] text-right text-[var(--fg)] z-30"
+      className="absolute top-[var(--section-top)] right-[var(--content-x)] max-w-[min(90vw,40rem)] text-right text-[var(--fg)] z-30 overflow-hidden"
       style={{ maxHeight: 'calc(100vh - var(--section-top) - var(--frame-y))' }}
     >
       {titleText && (
@@ -277,8 +277,8 @@ export default function Projects({ active }) {
 
       {currentStep >= 1 && (
         <div 
-          className="max-h-[calc(100vh-var(--section-top)-var(--frame-y)-3rem)] sm:max-h-[calc(100vh-var(--section-top)-var(--frame-y)-4rem)] overflow-y-auto scrollbar-hide overscroll-contain pr-1"
-          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
+          className="max-h-[calc(100vh-var(--section-top)-var(--frame-y)-3rem)] sm:max-h-[calc(100vh-var(--section-top)-var(--frame-y)-4rem)] overflow-y-auto scrollbar-hide overscroll-contain pr-1 touch-pan-y"
+          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y', overscrollBehavior: 'contain' }}
         >
           <a href="https://ads-platform-frontend-psi.vercel.app/login" target="_blank" rel="noopener noreferrer"
              aria-label="Visit AdCampaign Pro project (opens in new tab)"

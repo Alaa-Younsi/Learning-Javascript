@@ -274,6 +274,19 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
   const onTouchMove = (event) => {
     touchInputRef.current = true;
     movePointer(event.touches[0].clientX, event.touches[0].clientY);
+
+    // Only prevent default if the touch isn't inside a scrollable container.
+    // This allows overflow-y:auto/scroll containers (e.g. Projects) to
+    // receive native touch-scroll events on mobile browsers.
+    let el = event.target;
+    while (el && el !== document.body) {
+      const style = window.getComputedStyle(el);
+      const oy = style.overflowY;
+      if ((oy === 'auto' || oy === 'scroll') && el.scrollHeight > el.clientHeight) {
+        return; // let the element scroll natively
+      }
+      el = el.parentElement;
+    }
     event.preventDefault();
   };
 
@@ -322,6 +335,10 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
         zIndex: fullScreen ? 5 : 0,
         pointerEvents: 'none',
         backgroundColor: isDarkMode ? "#000" : "#fff",
+        // CSS-level clip enforces frame boundary on mobile GPU compositing.
+        // Inherits --frame-x / --frame-y from the parent div in Home.jsx.
+        clipPath: fullScreen ? 'none' : 'inset(var(--frame-y) var(--frame-x))',
+        WebkitClipPath: fullScreen ? 'none' : 'inset(var(--frame-y) var(--frame-x))',
       }}
     />
   );
