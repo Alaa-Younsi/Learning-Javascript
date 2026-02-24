@@ -274,20 +274,11 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
   const onTouchMove = (event) => {
     touchInputRef.current = true;
     movePointer(event.touches[0].clientX, event.touches[0].clientY);
-
-    // Only prevent default if the touch isn't inside a scrollable container.
-    // This allows overflow-y:auto/scroll containers (e.g. Projects) to
-    // receive native touch-scroll events on mobile browsers.
-    let el = event.target;
-    while (el && el !== document.body) {
-      const style = window.getComputedStyle(el);
-      const oy = style.overflowY;
-      if ((oy === 'auto' || oy === 'scroll') && el.scrollHeight > el.clientHeight) {
-        return; // let the element scroll natively
-      }
-      el = el.parentElement;
-    }
-    event.preventDefault();
+    // NOTE: Do NOT call event.preventDefault() here.
+    // Registering a non-passive touchmove on document blocks ALL native
+    // scroll on real mobile browsers (Chrome/Brave), including inside
+    // child scroll containers regardless of touch-action CSS.
+    // The parallax effect still works; we just don't suppress scrolling.
   };
 
   const onMouseLeave = () => {
@@ -306,7 +297,7 @@ export default function Background({ isDarkMode = true, fullScreen = false }) {
     window.addEventListener('resize', resize);
     // Attach mouse events to document to track cursor everywhere
     document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('touchmove', onTouchMove, { passive: false });
+    document.addEventListener('touchmove', onTouchMove, { passive: true });
     document.addEventListener('touchend', onMouseLeave);
     document.addEventListener('mouseleave', onMouseLeave);
 
