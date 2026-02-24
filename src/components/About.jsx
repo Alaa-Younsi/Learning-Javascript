@@ -12,11 +12,11 @@ export default function Info({ active }) {
   const [currentStep, setCurrentStep] = useState(0)
 
   const titleString = '\u25a0 Things that i can do'
-  const descString = 'I can do website development and design, including server side services.'
-  const frontEndLabelString = '\u25cf Front-end skillset'
-  const frontEndSkillsString = 'JavaScript, Typescript, React, Tailwind, Vite, NextJS..'
-  const backEndLabelString = '\u25cf Back-end skillset'
-  const backEndSkillsString = 'Python, MySQL, NodeJS, ExpressJS, Firebase, Vercel..'
+  const descString = 'I can do all sorts of digital services.'
+  const frontEndLabelString = '\u25cf Software Engineering & AI Systems'
+  const frontEndSkillsString = 'Full-stack web development, AI SaaS agents, automation, Linux, networking, and security fundamentals.'
+  const backEndLabelString = '\u25cf Design, Content & Growth'
+  const backEndSkillsString = 'UI/UX design, visual content creation, and performance-driven digital marketing for products and brands.'
   const link1String = 'Instagram\u2197'
   const link2String = 'Twitter\u2197'
 

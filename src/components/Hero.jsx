@@ -9,10 +9,10 @@ export default function Hero({ active }) { // Renamed from Home to Hero for clar
     "also an art.",
     "In a mission",
     "to do experiments",
-    "and Learn all kinds",
-    "of coding",
+    "and learn all sorts",
+    "of problem solving",
     "& programming",
-    "and Find",
+    "and find",
     "creative individuals",
     "to work with",
     "on future projects.",
@@ -24,17 +24,10 @@ export default function Hero({ active }) { // Renamed from Home to Hero for clar
   const [currentCharIndex, setCurrentCharIndex] = useState(0)
   const [link1Text, setLink1Text] = useState('')
   const [link2Text, setLink2Text] = useState('')
-  const [showLinks, setShowLinks] = useState(true) // Show immediately
+  const showLinks = true // Show immediately
 
   const link1String = 'Dead Side↗'
   const link2String = 'Journey↗'
-
-  // Start showing links immediately on mount
-  useEffect(() => {
-    if (active === "home") {
-      setShowLinks(true)
-    }
-  }, [active])
 
   useEffect(() => {
     if (active !== "home") return

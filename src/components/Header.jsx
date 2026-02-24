@@ -13,7 +13,7 @@ export default function Header({ active, setActive }) {
   return (
     <header className="fixed left-[var(--content-x)] top-[var(--content-y)] text-[var(--fg)] z-40 text-left">
       <h1 className="text-[clamp(1.75rem,4vw,3.5rem)] font-bold tracking-tight">Alaa Younsi</h1>
-      <p className="text-[clamp(0.65rem,1.2vw,0.95rem)] mt-1 opacity-80">Developer & Designer</p>
+      <p className="text-[clamp(0.65rem,1.2vw,0.95rem)] mt-1 opacity-80">Problem Solving Enjoyer</p>
 
       <nav aria-label="Main navigation" className="mt-6 sm:mt-8 lg:mt-10 space-y-1 sm:space-y-2 text-left">
         {btn("home", "Home")}
