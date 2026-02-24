@@ -152,10 +152,24 @@ canvas::after {
 }
 
 /* Set coding font globally */
+html {
+  /* Lock html/body height to prevent page-level stretch on mobile */
+  /* when Chrome/Brave URL bar expands or collapses. */
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   background-color: black;
   font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
   font-weight: 400;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Optional: Different weights for different elements */
@@ -194,9 +208,10 @@ body {
 }
 
 
-/* Smooth transitions */
+/* Smooth transitions — opacity only; excluding transform keeps mobile scroll
+   on the compositor thread and prevents repaints on every scroll frame. */
 * {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 /* Performance optimizations */

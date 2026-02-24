@@ -266,7 +266,7 @@ export default function Projects({ active }) {
     <section 
       aria-labelledby="projects-heading" 
       className="absolute top-[var(--section-top)] right-[var(--content-x)] max-w-[min(90vw,40rem)] text-right text-[var(--fg)] z-30 overflow-hidden"
-      style={{ maxHeight: 'calc(100vh - var(--section-top) - var(--frame-y))', touchAction: 'pan-y' }}
+      style={{ maxHeight: 'calc(100dvh - var(--section-top) - var(--frame-y))', touchAction: 'pan-y' }}
     >
       {titleText && (
         <h2 id="projects-heading" className="text-xs sm:text-sm mb-4 sm:mb-6 opacity-80 glitch-text" data-text={titleText}>
@@ -277,7 +277,7 @@ export default function Projects({ active }) {
 
       {currentStep >= 1 && (
         <div 
-          className="max-h-[calc(100vh-var(--section-top)-var(--frame-y)-3rem)] sm:max-h-[calc(100vh-var(--section-top)-var(--frame-y)-4rem)] overflow-y-auto scrollbar-hide overscroll-contain pr-1"
+          className="max-h-[calc(100dvh-var(--section-top)-var(--frame-y)-3rem)] sm:max-h-[calc(100dvh-var(--section-top)-var(--frame-y)-4rem)] overflow-y-auto scrollbar-hide overscroll-contain pr-1"
           style={{
             WebkitOverflowScrolling: 'touch',
             touchAction: 'pan-y',

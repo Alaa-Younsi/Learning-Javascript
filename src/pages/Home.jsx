@@ -55,16 +55,16 @@ export default function HomePage() {
     "--fg": isDarkMode ? "#fff" : "#000",
     "--border": isDarkMode ? "#fff" : "#000",
     "--frame-x": "clamp(12px, 2.5vw, 32px)",
-    "--frame-y": "clamp(16px, 5vh, 48px)",
+    "--frame-y": "clamp(16px, 5dvh, 48px)",
     "--content-x": "calc(var(--frame-x) + clamp(10px, 1.5vw, 20px))",
     "--content-y": "calc(var(--frame-y) + clamp(10px, 1.5vw, 20px))",
-    "--section-top": "calc(var(--content-y) + clamp(56px, 10vh, 140px))",
+    "--section-top": "calc(var(--content-y) + clamp(56px, 10dvh, 140px))",
   };
 
   return (
     <div 
       style={themeVars} 
-      className="min-h-screen bg-[var(--bg)] text-[var(--fg)]"
+      className="h-full overflow-hidden bg-[var(--bg)] text-[var(--fg)]"
       role="main"
     >
       <Helmet>
