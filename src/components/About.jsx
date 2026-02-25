@@ -17,8 +17,8 @@ export default function Info({ active }) {
   const frontEndSkillsString = 'Full-stack web development, AI SaaS agents, automation, Linux, networking, and security fundamentals.'
   const backEndLabelString = '\u25cf Design, Content & Growth'
   const backEndSkillsString = 'UI/UX design, visual content creation, and performance-driven digital marketing for products and brands.'
-  const link1String = 'Instagram\u2197'
-  const link2String = 'Twitter\u2197'
+  const link1String = 'GitHub\u2197'
+  const link2String = 'Leetcode\u2197'
 
   useEffect(() => {
     if (active !== "info") return
@@ -182,15 +182,15 @@ export default function Info({ active }) {
       {currentStep >= 6 && (
         <div className="absolute bottom-[var(--content-y)] right-[var(--content-x)] text-[var(--fg)] space-y-2 text-right">
           {link1Text && (
-            <a href="https://www.instagram.com/infinituxs/" target="_blank" rel="noopener noreferrer"
-               aria-label="Visit Instagram profile (opens in new tab)"
+            <a href="https://github.com/Alaa-Younsi" target="_blank" rel="noopener noreferrer"
+               aria-label="Visit GitHub profile (opens in new tab)"
                className="block text-[clamp(0.7rem,1vw,0.9rem)] hover:opacity-50 transition-opacity glitch-text" data-text={link1Text}>
               {link1Text}
               {link1Text.length < link1String.length && currentStep === 6 && <span className="cursor-blink">|</span>}
             </a>
           )}
           {currentStep >= 7 && link2Text && (
-            <a href="https://x.com/ashv3il" target="_blank" rel="noopener noreferrer"
+            <a href="https://leetcode.com/u/alaa-younsi/" target="_blank" rel="noopener noreferrer"
                aria-label="Visit Twitter profile (opens in new tab)"
                className="block text-xs sm:text-sm hover:opacity-50 transition-opacity glitch-text" data-text={link2Text}>
               {link2Text}
