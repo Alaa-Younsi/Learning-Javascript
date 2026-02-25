@@ -398,7 +398,7 @@ export default function Projects({ active }) {
           )}
 
           {currentStep >= 13 && (
-            <a href="https://enk-beta.vercel.app/" target="_blank" rel="noopener noreferrer"
+            <a href="https://enk-school.vercel.app/" target="_blank" rel="noopener noreferrer"
                aria-label="Visit ENK School project (opens in new tab)"
                className="block hover:opacity-50 transition-opacity mb-6 sm:mb-8">
               {project7Text && (
