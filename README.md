@@ -14,11 +14,13 @@ My current main portfolio. A framed, interstellar-themed single-page application
 
 ## 📸 Screenshots
 
-![Homepage](screenshot1.png)
-![Services Section](screenshot2.png)
-![Blog Section](screenshot3.png)
-![Homepage](screenshot4.png)
-![Services Section](screenshot5.png)
+![Homepage](./screenshots/screenshot1.png)
+![Services Section](./screenshots/screenshot2.png)
+![Blog Section](./screenshots/screenshot3.png)
+![Homepage](./screenshots/screenshot4.png)
+![Services Section](./screenshots/screenshot5.png)
+![Homepage](./screenshots/screenshot6.png)
+![Services Section](./screenshots/screenshot7.png)
 
 ---
 
