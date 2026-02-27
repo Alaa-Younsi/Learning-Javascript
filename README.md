@@ -14,10 +14,11 @@ My current main portfolio. A framed, interstellar-themed single-page application
 
 ## 📸 Screenshots
 
-<!-- Add screenshots here -->
-| Desktop | Mobile |
-|---|---|
-| ![Desktop](./public/screenshots/desktop.png) | ![Mobile](./public/screenshots/mobile.png) |
+![Homepage](screenshot1.png)
+![Services Section](screenshot2.png)
+![Blog Section](screenshot3.png)
+![Homepage](screenshot4.png)
+![Services Section](screenshot5.png)
 
 ---
 
@@ -122,28 +123,6 @@ The design rejects the typical "card grid on white background" portfolio format.
 
 ---
 
-## 🛠️ Local Development
-
-```bash
-# Clone
-git clone https://github.com/alaa-younsi/portfolio.git
-cd "portfolio 1.2"
-
-# Install
-npm install
-
-# Dev server (http://localhost:5173)
-npm run dev
-
-# Production build
-npm run build
-
-# Preview production build locally
-npm run preview
-```
-
----
-
 ## ✅ Best Practices
 
 ### Performance
@@ -188,16 +167,6 @@ npm run preview
 
 ---
 
-## 🔄 Version History & Iteration
-
-- **Marlowe Series** (static HTML/CSS) → **Portfolio 1.0** (React, basic layout)
-- **Portfolio 1.0** → **Portfolio 1.1** (black hole, canvas background, glitch system)
-- **Portfolio 1.1** → **Portfolio 1.2** (this version) — physics black hole rewrite, mobile fixes, dvh units, Projects inner scroll, SEO overhaul, performance hardening
-
-Each version builds on lessons from the previous, plus real-device testing across Android Chrome, Brave, and iOS Safari.
-
----
-
 ## ⚡ Why This Portfolio Stands Out
 
 1. **Zero UI libraries** — every interactive element is original code; no Framer Motion, no shadcn, no component kit
@@ -207,6 +176,28 @@ Each version builds on lessons from the previous, plus real-device testing acros
 5. **Performant by construction** — compositor-thread animations, passive event listeners, and `dvh` viewport handling chosen from the ground up
 
 ---
+
+## 📄 License
+
+Copyright (c) 2026 Alaa Younsi. All rights reserved.
+
+1. SCOPE OF LICENSE
+This repository is public for the sole purpose of demonstrating professional 
+coding skills, architecture, and design capabilities. 
+
+2. RESTRICTIONS
+Permission is NOT granted to any person obtaining a copy of this software 
+and associated documentation files to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software.
+
+3. PROHIBITED USE
+You may not use this code, or any portion of it, to build, host, or 
+operate a personal or commercial website. This includes, but is not 
+limited to:
+   - Cloning this repository to use as a website template.
+   - Copying unique CSS styling or custom UI components for reuse.
+   - Redistributing this code as your own work.
+- **Accessibility Checks** - WCAG compliance validation
 
 ## 👨‍💻 About the Developer
 
